@@ -177,180 +177,160 @@
 </head>
 <body>
     <div id="profile" class="profile" style="padding: 20px;">
-            <div class="profile-header">
-                <div class="profile-picture"></div>
-                <div class="profile-info">
-                    <div class="profile-name">Niloy Gazi</div>
-                    <div class="profile-username">@niloythedmc</div>
-                    <div class="Balance" style="font-size: 14px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Balance: 1600 $dogs</div>
-                    <div class="tr-sec" style="display: flex; margin-top: 10px;">
-                        <div class="dp" style="float: left;font-size: 13px; height: 20px;width: 80px; padding-top: 2px; font-weight: bold; border-radius: 10px; color: white; margin-right: 130px; background-color: rgb(84, 153, 255);">DEPOSIT</div>
-                        <div class="wd" style="height: 20px;font-size: 13px; width: 85px; padding-top: 2px; font-weight: bold; border-radius: 10px; color: white; background-color: rgb(84, 153, 255);">WITHDRAW</div>
-                    </div>
+        <div class="profile-header">
+            <div class="profile-picture"></div>
+            <div class="profile-info">
+                <div class="profile-name">Niloy Gazi</div>
+                <div class="profile-username">@niloythedmc</div>
+                <div class="Balance" style="font-size: 14px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Balance: 1600 $dogs</div>
+                <div class="tr-sec" style="display: flex; margin-top: 10px;">
+                    <div class="dp" style="float: left;font-size: 13px; height: 20px;width: 80px; padding-top: 2px; font-weight: bold; border-radius: 10px; color: white; margin-right: 130px; background-color: rgb(84, 153, 255);">DEPOSIT</div>
+                    <div class="wd" style="height: 20px;font-size: 13px; width: 85px; padding-top: 2px; font-weight: bold; border-radius: 10px; color: white; background-color: rgb(84, 153, 255);">WITHDRAW</div>
                 </div>
             </div>
-            <div class="profile-stats">
-                <div class="stat-item">3.1K Followers</div>
-                <div class="stat-item">14.9K Likes</div>
+        </div>
+        <div class="profile-stats">
+            <div class="stat-item">3.1K Followers</div>
+            <div class="stat-item">14.9K Likes</div>
+        </div>
+        <div class="profile-tabs">
+            <button class="tab active" onclick="showTab('posts')">Posts</button>
+            <button class="tab" onclick="showTab('followers')" style="text-align: center;">Followers</button>
+            <button class="tab" onclick="showTab('earn')">Earn</button>
+        </div>
+        <div id="posts-grid" class="posts-grid" style="width: 100%;">
+            <div class="floating-button">
+                <span class="material-icons">add</span>
             </div>
-            <div class="profile-tabs">
-                <button class="tab active" onclick="showTab('posts')">Posts</button>
-                <button class="tab" onclick="showTab('followers')" style="text-align: center;">Followers</button>
-                <button class="tab" onclick="showTab('earn')">Earn</button>
+        </div>
+        <div id="followers-grid" class="followers-grid hidden">
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="more-link">
+                <a href="#">more</a>
             </div>
-            <div id="posts-grid" class="posts-grid" style="width: 100%;">
-                <div class="floating-button">
-                    <span class="material-icons">add</span>
-                </div>
-            </div>
-            <div id="followers-grid" class="followers-grid hidden">
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="more-link">
-                    <a href="#">more</a>
-                </div>
-            </div>
-            <div id="earn-grid" class="earn-grid hidden">
-                <div class="invite">
-                    <p>Invite to earn</p>
-                    <p>Earn 10 $dogs per invite. Be creative. Do unique</p>
-                    <div style="display: flex;">
-                        <input id="invite-link" type="text" value="https://t.me/App_ZeroX_Bot?startapp=bieg28rddhy8r29ys" readonly>
-                        <span class="material-icons copy-icon" onclick="copyToClipboard()">content_copy</span>
-                    </div>
-                </div>
-                <div class="task">
-                    <span>Join Channel to earn 10 $dogs</span>
-                    <button class="button">GO</button>
-                </div>
-                <div class="task">
-                    <span>Follow X to earn 10 $dogs</span>
-                    <button class="button">GO</button>
-                </div>
-                <div class="task">
-                    <span>Subscribe YouTube to earn 10 $dogs</span>
-                    <button class="button">GO</button>
-                </div>
-                <div class="task">
-                    <span>Join Dogs Community to earn 10 $dogs</span>
-                    <button class="button">GO</button>
-                </div>
-                <div class="task">
-                    <span>Follow Dogs on X to earn 10 $dogs</span>
-                    <button class="button">GO</button>
-                </div>
-                <div class="task">
-                    <span>Follow here to earn 10 $dogs</span>
-                    <button class="button">GO</button>
-                </div>
-                <div class="task">
-                    <span>Deposit to earn 10 $dogs</span>
-                    <button class="button">GO</button>
-                </div>
-                <div class="task">
-                    <span>Post to earn more $dogs</span>
-                    <button class="button">GO</button>
+        </div>
+        <div id="earn-grid" class="earn-grid hidden">
+            <div class="invite">
+                <p>Invite to earn</p>
+                <p>Earn 10 $dogs per invite. Be creative. Do unique</p>
+                <div style="display: flex;">
+                    <input id="invite-link" type="text" value="https://t.me/App_ZeroX_Bot?startapp=bieg28rddhy8r29ys" readonly>
+                    <span class="material-icons copy-icon" onclick="copyToClipboard()">content_copy</span>
                 </div>
             </div>
-            <script>
-                function showTab(tabName) {
-                   
-                    const tabs = document.querySelectorAll('.tab');
-                    const postsGrid = document.getElementById('posts-grid');
-                    const followersGrid = document.getElementById('followers-grid');
-                    const earnGrid = document.getElementById('earn-grid');
-        
-                    tabs.forEach(tab => tab.classList.remove('active'));
-                    postsGrid.classList.add('hidden');
-                    followersGrid.classList.add('hidden');
-                    earnGrid.classList.add('hidden');
-        
-                    if (tabName === 'posts') {
-                        postsGrid.classList.remove('hidden');
-                    } else if (tabName === 'followers') {
-                        followersGrid.classList.remove('hidden');
-                    } else if (tabName === 'earn') {
-                        earnGrid.classList.remove('hidden');
-                    }
-        
-                    document.querySelector(`.tab:nth-child(${tabName === 'posts' ? 1 : tabName === 'followers' ? 2 : 3})`).classList.add('active');
-                }
-        
-                function copyToClipboard() {
-                    const inviteLink = document.getElementById("invite-link");
-                    inviteLink.select();
-                    inviteLink.setSelectionRange(0, 99999);
-                    navigator.clipboard.writeText(inviteLink.value).then(() => {
-                        alert("Link copied to clipboard!");
-                    });
-                }
-            </script>
+            <!-- Tasks -->
+            <div class="task">
+                <span>Join Channel to earn 10 $dogs</span>
+                <button class="button">GO</button>
+            </div>
+            <!-- More tasks... -->
+        </div>
     </div>
-</body>
-<script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js"></script>
-<script>
-    // Firebase Configuration
-    const firebaseConfig = {
-        apiKey: "AIzaSyBZgCC8NmbT8_fS1FTC6CIAOcmhRS7BKuw",
-  authDomain: "zerox-793b6.firebaseapp.com",
-  databaseURL: "https://zerox-793b6-default-rtdb.firebaseio.com",
-  projectId: "zerox-793b6",
-  storageBucket: "zerox-793b6.firebasestorage.app",
-  messagingSenderId: "577608028088",
-  appId: "1:577608028088:web:f13f12f935dc3a0b4b094d"
-    };
-    const app = firebase.initializeApp(firebaseConfig);
-    const db = firebase.database();
 
-    // Fetch Telegram User Info
-    const userData = Telegram.WebApp.initDataUnsafe.user;
-    if (userData) {
-        const userId = userData.id;
-        const userRef = firebase.database().ref(`users/${userId}`);
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js"></script>
+    <script>
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBZgCC8NmbT8_fS1FTC6CIAOcmhRS7BKuw",
+            authDomain: "zerox-793b6.firebaseapp.com",
+            databaseURL: "https://zerox-793b6-default-rtdb.firebaseio.com",
+            projectId: "zerox-793b6",
+            storageBucket: "zerox-793b6.firebasestorage.app",
+            messagingSenderId: "577608028088",
+            appId: "1:577608028088:web:f13f12f935dc3a0b4b094d"
+        };
 
-        // Check and Initialize User Data
-        userRef.get().then((snapshot) => {
-            if (!snapshot.exists()) {
-                // First Time User: Initialize Data
-                userRef.set({
-                    username: `@${userData.username}`,
-                    name: userData.first_name,
-                    balance: 20,
-                    likes: 0,
-                    followers: 0,
-                    photo_url: userData.photo_url || null,
-                }).then(() => {
-                    console.log("User initialized successfully.");
-                    updateProfileUI(userData, { balance: 20, likes: 0, followers: 0 });
-                }).catch((error) => console.error("Error initializing user:", error));
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const tg = window.Telegram.WebApp.initDataUnsafe.user;
+
+            if (tg) {
+                const userId = tg.id;
+                const name = tg.first_name || "Anonymous";
+                const username = tg.username || `@${userId}`;
+                const profilePic = tg.photo_url || "default-profile-pic.jpg"; // Fallback image
+
+                // Check if user exists in Firebase
+                const userRef = database.ref(`users/${userId}`);
+                userRef.once("value").then((snapshot) => {
+                    if (snapshot.exists()) {
+                        // User exists, fetch data and update UI
+                        const data = snapshot.val();
+                        updateProfile(data.name, data.username, data.balance, profilePic);
+                    } else {
+                        // New user: Create user in Firebase with initial data
+                        const initialData = {
+                            name: name,
+                            username: username,
+                            balance: 20,
+                            likes: 0,
+                            followers: 0,
+                            profilePic: profilePic
+                        };
+                        userRef.set(initialData);
+                        updateProfile(name, username, 20, profilePic);
+                    }
+                });
             } else {
-                // Existing User: Fetch Data
-                const userDetails = snapshot.val();
-                console.log("Existing user data:", userDetails);
-                updateProfileUI(userData, userDetails);
+                console.error("Telegram WebApp data unavailable");
             }
-        }).catch((error) => console.error("Error fetching user data:", error));
-    } else {
-        console.error("User data unavailable!");
-    }
+        });
 
-    // Update Profile UI
-    function updateProfileUI(user, details) {
-        document.querySelector('.profile-picture').style.backgroundImage = user.photo_url
-            ? `url(${user.photo_url})`
-            : "none";
-        document.querySelector('.profile-name').innerText = user.first_name;
-        document.querySelector('.profile-username').innerText = `@${user.username}`;
-        document.querySelector('.Balance').innerText = `Balance: ${details.balance} $dogs`;
-    }
-</script>
+        // Function to update profile with user data
+        function updateProfile(name, username, balance, profilePic) {
+            document.querySelector(".profile-name").textContent = name;
+            document.querySelector(".profile-username").textContent = username;
+            document.querySelector(".Balance").textContent = `Balance: ${balance} $dogs`;
+            const profilePicture = document.querySelector(".profile-picture");
+            profilePicture.style.backgroundImage = `url(${profilePic})`;
+            profilePicture.style.backgroundSize = "cover";
+        }
 
+        // Tab switching logic
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab');
+            const postsGrid = document.getElementById('posts-grid');
+            const followersGrid = document.getElementById('followers-grid');
+            const earnGrid = document.getElementById('earn-grid');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+            postsGrid.classList.add('hidden');
+            followersGrid.classList.add('hidden');
+            earnGrid.classList.add('hidden');
+
+            if (tabName === 'posts') {
+                postsGrid.classList.remove('hidden');
+            } else if (tabName === 'followers') {
+                followersGrid.classList.remove('hidden');
+            } else if (tabName === 'earn') {
+                earnGrid.classList.remove('hidden');
+            }
+
+            document.querySelector(`.tab:nth-child(${tabName === 'posts' ? 1 : tabName === 'followers' ? 2 : 3})`).classList.add('active');
+        }
+
+        // Copy link to clipboard
+        function copyToClipboard() {
+            const inviteLink = document.getElementById("invite-link");
+            inviteLink.select();
+            inviteLink.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(inviteLink.value).then(() => {
+                alert("Link copied to clipboard!");
+            });
+        }
+    </script>
+</body>
 </html>
