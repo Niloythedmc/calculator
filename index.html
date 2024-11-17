@@ -3,37 +3,351 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="app.js" defer></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        .profile-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.profile-picture {
+    width: 80px;
+    height: 80px;
+    background-color: #d3d3d3;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.profile-info {
+    text-align: center;
+}
+.profile-name {
+    height: 16px;
+    margin: 4px auto;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.profile-username {
+    height: 11px;
+    margin: 4px auto;
+    font-size: 13px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.profile-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+.profile-tabs {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #d3d3d3;
+    margin-bottom: 20px;
+}
+.tab {
+    flex: 1;
+    border: none;
+    background: none;
+    font-size: 14px;
+    color: #000;
+    padding: 10px;
+    cursor: pointer;
+}
+.tab.active {
+    color: blue;
+    border-bottom: 2px solid blue;
+}
+.followers-grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 20px;
+    margin: 30px;
+}
+.grid-item {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: lightgray;
+}
+.grid-item img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+.more-link a {
+    font-size: 14px;
+    color: blue;
+    text-decoration: none;
+}
+.invite {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fce4ec;
+    border-radius: 8px;
+}
+.invite p {
+    margin: 5px 0;
+}
+.invite input {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.copy-icon {
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    background-color: white;
+    top: 78%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding-top: 5px;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: gray;
+    font-size: 24px;
+}
+.copy-icon:hover {
+    color: black;
+}
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fce4ec;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+    font-size: 13px;
+}
+.task:nth-child(even) {
+    background-color: #e8f5e9;
+}
+.button {
+    background-color: blue;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: darkblue;
+}
+.floating-button {
+    position: fixed;
+    bottom: 75px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    background-color: blue;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+}
+.floating-button:hover {
+    background-color: darkblue;
+}
+.floating-button .material-icons {
+    font-size: 24px;
+}
+.hidden {
+    display: none;
+}
+    </style>
 </head>
 <body>
-    <h1>Niloy Gazi</h1>
-    <div class="calculator">
-        <input type="text" id="display"/>
-        <div class="buttons">
-            <button class="btn" data-value="7">7</button>
-            <button class="btn" data-value="8">8</button>
-            <button class="btn" data-value="9">9</button>
-            <button class="btn operator" data-value="/">/</button>
+    <div id="profile" class="profile" style="padding: 20px;">
+            <div class="profile-header">
+                <div class="profile-picture"></div>
+                <div class="profile-info">
+                    <div class="profile-name">Niloy Gazi</div>
+                    <div class="profile-username">@niloythedmc</div>
+                    <div class="Balance" style="font-size: 14px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Balance: 1600 $dogs</div>
+                    <div class="tr-sec" style="display: flex; margin-top: 10px;">
+                        <div class="dp" style="float: left;font-size: 13px; height: 20px;width: 80px; padding-top: 2px; font-weight: bold; border-radius: 10px; color: white; margin-right: 130px; background-color: rgb(84, 153, 255);">DEPOSIT</div>
+                        <div class="wd" style="height: 20px;font-size: 13px; width: 85px; padding-top: 2px; font-weight: bold; border-radius: 10px; color: white; background-color: rgb(84, 153, 255);">WITHDRAW</div>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-stats">
+                <div class="stat-item">3.1K Followers</div>
+                <div class="stat-item">14.9K Likes</div>
+            </div>
+            <div class="profile-tabs">
+                <button class="tab active" onclick="showTab('posts')">Posts</button>
+                <button class="tab" onclick="showTab('followers')" style="text-align: center;">Followers</button>
+                <button class="tab" onclick="showTab('earn')">Earn</button>
+            </div>
+            <div id="posts-grid" class="posts-grid" style="width: 100%;">
+                <div class="floating-button">
+                    <span class="material-icons">add</span>
+                </div>
+            </div>
+            <div id="followers-grid" class="followers-grid hidden">
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="more-link">
+                    <a href="#">more</a>
+                </div>
+            </div>
+            <div id="earn-grid" class="earn-grid hidden">
+                <div class="invite">
+                    <p>Invite to earn</p>
+                    <p>Earn 10 $dogs per invite. Be creative. Do unique</p>
+                    <div style="display: flex;">
+                        <input id="invite-link" type="text" value="https://t.me/App_ZeroX_Bot?startapp=bieg28rddhy8r29ys" readonly>
+                        <span class="material-icons copy-icon" onclick="copyToClipboard()">content_copy</span>
+                    </div>
+                </div>
+                <div class="task">
+                    <span>Join Channel to earn 10 $dogs</span>
+                    <button class="button">GO</button>
+                </div>
+                <div class="task">
+                    <span>Follow X to earn 10 $dogs</span>
+                    <button class="button">GO</button>
+                </div>
+                <div class="task">
+                    <span>Subscribe YouTube to earn 10 $dogs</span>
+                    <button class="button">GO</button>
+                </div>
+                <div class="task">
+                    <span>Join Dogs Community to earn 10 $dogs</span>
+                    <button class="button">GO</button>
+                </div>
+                <div class="task">
+                    <span>Follow Dogs on X to earn 10 $dogs</span>
+                    <button class="button">GO</button>
+                </div>
+                <div class="task">
+                    <span>Follow here to earn 10 $dogs</span>
+                    <button class="button">GO</button>
+                </div>
+                <div class="task">
+                    <span>Deposit to earn 10 $dogs</span>
+                    <button class="button">GO</button>
+                </div>
+                <div class="task">
+                    <span>Post to earn more $dogs</span>
+                    <button class="button">GO</button>
+                </div>
+            </div>
+            <script>
+                function showTab(tabName) {
+                   
+                    const tabs = document.querySelectorAll('.tab');
+                    const postsGrid = document.getElementById('posts-grid');
+                    const followersGrid = document.getElementById('followers-grid');
+                    const earnGrid = document.getElementById('earn-grid');
+        
+                    tabs.forEach(tab => tab.classList.remove('active'));
+                    postsGrid.classList.add('hidden');
+                    followersGrid.classList.add('hidden');
+                    earnGrid.classList.add('hidden');
+        
+                    if (tabName === 'posts') {
+                        postsGrid.classList.remove('hidden');
+                    } else if (tabName === 'followers') {
+                        followersGrid.classList.remove('hidden');
+                    } else if (tabName === 'earn') {
+                        earnGrid.classList.remove('hidden');
+                    }
+        
+                    document.querySelector(`.tab:nth-child(${tabName === 'posts' ? 1 : tabName === 'followers' ? 2 : 3})`).classList.add('active');
+                }
+        
+                function copyToClipboard() {
+                    const inviteLink = document.getElementById("invite-link");
+                    inviteLink.select();
+                    inviteLink.setSelectionRange(0, 99999);
+                    navigator.clipboard.writeText(inviteLink.value).then(() => {
+                        alert("Link copied to clipboard!");
+                    });
+                }
+                <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js"></script>
+    
+    const firebaseConfig = {
+        apiKey: "AIzaSyBZgCC8NmbT8_fS1FTC6CIAOcmhRS7BKuw",
+        authDomain: "zerox-793b6.firebaseapp.com",
+        databaseURL: "https://zerox-793b6-default-rtdb.firebaseio.com",
+        projectId: "zerox-793b6",
+        storageBucket: "zerox-793b6.firebasestorage.app",
+        messagingSenderId: "577608028088",
+        appId: "1:577608028088:web:f13f12f935dc3a0b4b094d",
+    };
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
 
-            <button class="btn" data-value="4">4</button>
-            <button class="btn" data-value="5">5</button>
-            <button class="btn" data-value="6">6</button>
-            <button class="btn operator" data-value="*">*</button>
+    // Fetch Telegram User Info
+    const userData = Telegram.WebApp.initDataUnsafe.user;
+    if (userData) {
+        const userId = userData.id;
+        const userRef = firebase.database().ref(`users/${userId}`);
 
-            <button class="btn" data-value="1">1</button>
-            <button class="btn" data-value="2">2</button>
-            <button class="btn" data-value="3">3</button>
-            <button class="btn operator" data-value="-">-</button>
+        // Check and Initialize User Data
+        userRef.get().then((snapshot) => {
+            if (!snapshot.exists()) {
+                // First Time User: Initialize Data
+                userRef.set({
+                    username: `@${userData.username}`,
+                    name: userData.first_name,
+                    balance: 20,
+                    likes: 0,
+                    followers: 0,
+                    photo_url: userData.photo_url || null,
+                }).then(() => {
+                    console.log("User initialized successfully.");
+                    updateProfileUI(userData, { balance: 20, likes: 0, followers: 0 });
+                }).catch((error) => console.error("Error initializing user:", error));
+            } else {
+                // Existing User: Fetch Data
+                const userDetails = snapshot.val();
+                console.log("Existing user data:", userDetails);
+                updateProfileUI(userData, userDetails);
+            }
+        }).catch((error) => console.error("Error fetching user data:", error));
+    } else {
+        console.error("User data unavailable!");
+    }
 
-            <button class="btn" data-value="0">0</button>
-            <button class="btn" data-value=".">.</button>
-            <button class="btn" id="clear">C</button>
-            <button class="btn operator" data-value="+">+</button>
-
-            <button class="btn" id="equals" colspan="4">=</button>
-        </div>
+    // Update Profile UI
+    function updateProfileUI(user, details) {
+        document.querySelector('.profile-picture').style.backgroundImage = user.photo_url
+            ? `url(${user.photo_url})`
+            : "none";
+        document.querySelector('.profile-name').innerText = user.first_name;
+        document.querySelector('.profile-username').innerText = `@${user.username}`;
+        document.querySelector('.Balance').innerText = `Balance: ${details.balance} $dogs`;
+    }
+            </script>
     </div>
 </body>
 </html>
