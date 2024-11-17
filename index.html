@@ -291,17 +291,21 @@
                         alert("Link copied to clipboard!");
                     });
                 }
-                <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js"></script>
+            </script>
+    </div>
+</body>
+<script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js"></script>
-    
+<script>
+    // Firebase Configuration
     const firebaseConfig = {
         apiKey: "AIzaSyBZgCC8NmbT8_fS1FTC6CIAOcmhRS7BKuw",
-        authDomain: "zerox-793b6.firebaseapp.com",
-        databaseURL: "https://zerox-793b6-default-rtdb.firebaseio.com",
-        projectId: "zerox-793b6",
-        storageBucket: "zerox-793b6.firebasestorage.app",
-        messagingSenderId: "577608028088",
-        appId: "1:577608028088:web:f13f12f935dc3a0b4b094d",
+  authDomain: "zerox-793b6.firebaseapp.com",
+  databaseURL: "https://zerox-793b6-default-rtdb.firebaseio.com",
+  projectId: "zerox-793b6",
+  storageBucket: "zerox-793b6.firebasestorage.app",
+  messagingSenderId: "577608028088",
+  appId: "1:577608028088:web:f13f12f935dc3a0b4b094d"
     };
     const app = firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
@@ -347,7 +351,6 @@
         document.querySelector('.profile-username').innerText = `@${user.username}`;
         document.querySelector('.Balance').innerText = `Balance: ${details.balance} $dogs`;
     }
-            </script>
-    </div>
-</body>
+</script>
+
 </html>
