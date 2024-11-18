@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZeroX UI</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <style>
         * {
             margin: 0;
@@ -422,7 +421,7 @@
             <div class="post">
                 <div class="top-info">
                     <div class="profile-pic">
-                        <img src="myphoto.jpg" alt="">
+                        <img src="" alt="">
                     </div>
                     <div class="detail">
                         <div class="profile-text">Joynal Gazi Niloy</div>
@@ -446,7 +445,7 @@
             <div class="post">
                 <div class="top-info">
                     <div class="profile-pic">
-                        <img src="pixpic.jpg" alt="">
+                        <img src="" alt="">
                     </div>
                     <div class="detail">
                         <div class="profile-text">Not Pixi me</div>
@@ -457,7 +456,7 @@
                     we are on the way
                 </div>
                 <div class="content">
-                    <img src="notpixipost.jpg" alt="">
+                    <img src="" alt="">
                 </div>
                 <div class="footer">
                     <div class="reactions">
@@ -470,7 +469,7 @@
             <div class="post">
                 <div class="top-info">
                     <div class="profile-pic">
-                        <img src="hkhridoy.jpg" alt="">
+                        <img src="" alt="">
                     </div>
                     <div class="detail">
                         <div class="profile-text">HK Hridoy Khan</div>
@@ -738,15 +737,14 @@
     
         // Fetch Telegram User Info
         const telegram = window.Telegram.WebApp;
-        const userId = telegram.initDataUnsafe.user.id;
         const username = telegram.initDataUnsafe.user.username;
         const fullName = telegram.initDataUnsafe.user.first_name + " " + (telegram.initDataUnsafe.user.last_name || '');
         const profilePic = telegram.initDataUnsafe.user.photo_url;
     
         // Check User in Database
-        const userRef = ref(db, `users/${userId}`);
+        const userRef = ref(db, `users/${username}`);
     
-        get(child(ref(db), `users/${userId}`))
+        get(child(ref(db), `users/${username}`))
             .then(snapshot => {
                 if (snapshot.exists()) {
                     // User exists, fetch their data
@@ -755,7 +753,7 @@
                 } else {
                     // User does not exist, create default data
                     const defaultData = {
-                        username: username || `@user${userId}`,
+                        username: username || `@user${fullName}`,
                         name: fullName,
                         photoUrl: profilePic || 'https://via.placeholder.com/80',
                         balance: 20,
