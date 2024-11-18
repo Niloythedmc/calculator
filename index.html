@@ -3,10 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroX UI</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        .profile-title {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            position: relative;
+        }
+        .container {
+            width: 100%;
+            height: 100vh;
+            justify-content: center;
+            display: block;
+            margin: 0 auto;
+            background-color: white;
+        }
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        header h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 25px;
+            margin: 10px;
+            border: 1px solid #ddd;
+        }
+        .search-box input {
+            border: none;
+            background: none;
+            outline: none;
+            width: 100%;
+            padding-left: 10px;
+        }
+        .search-box .material-icons {
+            font-size: 20px;
+            color: #888;
+        }
+        .tags {
+            display: flex;
+            justify-content: space-around;
+            margin: 10px;
+        }
+        .tag {
+            padding: 5px 15px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+        .post {
+            background-color: white;
+            border-radius: 15px;
+            margin: 10px;
+            padding: 15px;
+            box-shadow: 0 0px 7px rgba(0, 0, 0, 0.2);
+        }
+        .post .top-info {
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .post .top-info .profile-pic {
+            width: 40px;
+            height: 40px;
+            background-color: #e0e0e0;
+            border-radius: 50%;
+            float: left;
+        }
+        .profile-pic img {
+            height: 40px;
+            width: 40px;
+            border: 1px solid black;
+            border-radius: 50%;
+        }
+        .post .top-info .detail {
+            padding-top: 2px;
+            width: 250px;
+            margin-left: 45px;
+            height: 40px;
+            border-radius: 8px;
+        }
+        .profile-text {
+            font-weight: bold;
+            margin-left: 10px;
+            height: 15px;
+            border-radius: 8px;
+        }
+        .time {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: small;
+            width: 150px;
+            margin-top: 5px;
+            margin-left: 10px;
+            height: 15px;
+            border-radius: 8px;
+        }
+        .content {
+            margin: 10px 0;
+            justify-content: center;
+        }
+        .content img {
+            max-height: 200px;
+            max-width: 100%;
+            border-radius: 15px;
+        }
+        .text-content {
+            margin: 10px 0;
+        }
+        .post .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer .reactions {
+            display: flex;
+            align-items: center;
+        }
+        .footer .reactions span {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+            font-size: 14px;
+        }
+        .footer .reactions .material-icons {
+            font-size: 20px;
+            margin-right: 5px;
+        }
+        .bottom-nav {
+            position: fixed;
+            bottom: 0%;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px;
+            background-color: white;
+            border-top: 2px solid #9c9c9c;
+        }
+        .bottom-nav .nav-item {
+            text-align: center;
+            color: black; /* Default color for all nav items */
+        }
+        .bottom-nav .nav-item.selected {
+            color: #007bff; /* Blue color for the selected nav item */
+        }
+        .bottom-nav .nav-item .material-icons {
+            font-size: 30px;
+        }
+        .hidden {
+            display: none;
+        }
+        .local{
+            justify-content: center;
+            width: 100%;
+            padding: 15px;
+        }
+        .feedhead{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            font-size: 20px;
+        }
+        .shop{
+            justify-content: center;
+            width: 100%;
+            padding: 30px;
+        }
+        .profile{
+            justify-content: center;
+            width: 100%;
+        }
+        .shop h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .placeholder {
+            background-color: #e0e0e0;
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+        }
+
+        .text-placeholder {
+            background-color: #ddd;
+            height: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .text-placeholder.short {
+            width: 50%;
+        }
+
+        .text-placeholder.long {
+            width: 80%;
+        }
+.profile-container {
+    width: 350px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.profile-title {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -23,6 +248,8 @@
     background-color: #d3d3d3;
     border-radius: 50%;
     margin-bottom: 10px;
+    background-size: cover;
+    background-position: center;
 }
 .profile-info {
     text-align: center;
@@ -176,161 +403,434 @@
     </style>
 </head>
 <body>
-    <div id="profile" class="profile" style="padding: 20px;">
-        <div class="profile-header">
-            <div class="profile-picture"></div>
-            <div class="profile-info">
-                <div class="profile-name">Niloy Gazi</div>
-                <div class="profile-username">@niloythedmc</div>
-                <div class="Balance" style="font-size: 14px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Balance: 1600 $dogs</div>
-                <div class="tr-sec" style="display: flex; margin-top: 10px;">
-                    <div class="dp" style="float: left;font-size: 13px; height: 20px;width: 80px; padding-top: 2px; font-weight: bold; border-radius: 10px; color: white; margin-right: 130px; background-color: rgb(84, 153, 255);">DEPOSIT</div>
-                    <div class="wd" style="height: 20px;font-size: 13px; width: 85px; padding-top: 2px; font-weight: bold; border-radius: 10px; color: white; background-color: rgb(84, 153, 255);">WITHDRAW</div>
+    <div class="container">
+        <header>
+            <h1>ZEROX</h1>
+        </header>
+        <div id="home" class="home">
+            <div class="search-box">
+                <i class="material-icons">search</i>
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="tags">
+                <div class="tag">#top</div>
+                <div class="tag">#trend</div>
+                <div class="tag">#social</div>
+                <div class="tag">#crypto</div>
+            </div>
+            <!-- Post 1 -->
+            <div class="post">
+                <div class="top-info">
+                    <div class="profile-pic">
+                        <img src="myphoto.jpg" alt="">
+                    </div>
+                    <div class="detail">
+                        <div class="profile-text">Joynal Gazi Niloy</div>
+                        <div class="time">8 Nov 2024, 4:30pm</div>
+                    </div>
+                </div>
+                <div class="text-content">
+                    $BTC making All Time High with every single candle. What is your prediction next?
+                </div>
+                <div class="content">
+                    <img src="" alt="">
+                </div>
+                <div class="footer">
+                    <div class="reactions">
+                        <span><i class="material-icons">favorite_border</i> 1.4K</span>
+                        <span><i class="material-icons">chat_bubble_outline</i> 376</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Post 2 -->
+            <div class="post">
+                <div class="top-info">
+                    <div class="profile-pic">
+                        <img src="pixpic.jpg" alt="">
+                    </div>
+                    <div class="detail">
+                        <div class="profile-text">Not Pixi me</div>
+                        <div class="time">19 August 2024, 09:22pm</div>
+                    </div>
+                </div>
+                <div class="text-content">
+                    we are on the way
+                </div>
+                <div class="content">
+                    <img src="notpixipost.jpg" alt="">
+                </div>
+                <div class="footer">
+                    <div class="reactions">
+                        <span><i class="material-icons">favorite_border</i> 9.5K</span>
+                        <span><i class="material-icons">chat_bubble_outline</i> 1.8K</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Post 3 -->
+            <div class="post">
+                <div class="top-info">
+                    <div class="profile-pic">
+                        <img src="hkhridoy.jpg" alt="">
+                    </div>
+                    <div class="detail">
+                        <div class="profile-text">HK Hridoy Khan</div>
+                        <div class="time">15 Nov 2024, 07:27am</div>
+                    </div>
+                </div>
+                <div class="text-content">
+                    Something crazy gonna be happen.... Are u ready?.. 
+                </div>
+                <div class="content">
+                    <img src="" alt="">
+                </div>
+                <div class="footer">
+                    <div class="reactions">
+                        <span><i class="material-icons">favorite_border</i> 710</span>
+                        <span><i class="material-icons">chat_bubble_outline</i> 292</span>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="profile-stats">
-            <div class="stat-item">3.1K Followers</div>
-            <div class="stat-item">14.9K Likes</div>
-        </div>
-        <div class="profile-tabs">
-            <button class="tab active" onclick="showTab('posts')">Posts</button>
-            <button class="tab" onclick="showTab('followers')" style="text-align: center;">Followers</button>
-            <button class="tab" onclick="showTab('earn')">Earn</button>
-        </div>
-        <div id="posts-grid" class="posts-grid" style="width: 100%;">
-            <div class="floating-button">
-                <span class="material-icons">add</span>
+
+        <div id="local" class="local hidden">
+            <div class="feedhead">Feed <br>
+                <h4 style="font-size: 10px;">coming soon...</h4>
             </div>
-        </div>
-        <div id="followers-grid" class="followers-grid hidden">
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="grid-item"></div>
-            <div class="more-link">
-                <a href="#">more</a>
-            </div>
-        </div>
-        <div id="earn-grid" class="earn-grid hidden">
-            <div class="invite">
-                <p>Invite to earn</p>
-                <p>Earn 10 $dogs per invite. Be creative. Do unique</p>
-                <div style="display: flex;">
-                    <input id="invite-link" type="text" value="https://t.me/App_ZeroX_Bot?startapp=bieg28rddhy8r29ys" readonly>
-                    <span class="material-icons copy-icon" onclick="copyToClipboard()">content_copy</span>
+            <div class="post">
+                <div class="top-info">
+                    <div class="profile-pic" style="height: 40px; width: 40px; background-color: lightgray;">
+                        
+                    </div>
+                    <div class="detail">
+                        <div class="profile-text" style="height: 20px; width: 150px; background-color: lightgray;"></div>
+                    </div>
                 </div>
+                <div class="content" style="width: 100%; height: 200px; background-color: lightgray; border-radius: 10px; margin-bottom: 10px;">
+                </div>
+                <div class="text-content">
+                </div>
+                <div class="time">12:00 PM</div>
             </div>
-            <!-- Tasks -->
-            <div class="task">
-                <span>Join Channel to earn 10 $dogs</span>
-                <button class="button">GO</button>
+    
+            <div class="post">
+                <div class="top-info">
+                    <div class="profile-pic" style="height: 40px; width: 40px; background-color: lightgray;">
+                        
+                    </div>
+                    <div class="detail">
+                        <div class="profile-text" style="height: 20px; width: 150px; background-color: lightgray;"></div>
+                    </div>
+                </div>
+                <div class="content" style="width: 100%; height: 200px; background-color: lightgray; border-radius: 10px; margin-bottom: 10px;">
+                    <img src="" alt="">
+                </div>
+                <div class="text-content">
+                </div>
+                <div class="time">12:00 PM</div>
             </div>
-            <!-- More tasks... -->
+    
+            <div class="post">
+                <div class="top-info">
+                    <div class="profile-pic" style="height: 40px; width: 40px; background-color: lightgray;">
+                        
+                    </div>
+                    <div class="detail">
+                        <div class="profile-text" style="height: 20px; width: 150px; background-color: lightgray;"></div>
+                    </div>
+                </div>
+                <div class="content" style="width: 100%; height: 200px; background-color: lightgray; border-radius: 10px; margin-bottom: 10px;">
+                    <img src="" alt="">
+                </div>
+                <div class="text-content">
+                </div>
+                <div class="time">12:00 PM</div>
+            </div>
+        </div>
+
+        <div id="shop" class="shop hidden" style="text-align: center; margin-top: 0%;">
+            <h1>Shop</h1>
+                <h4 style="font-size: 10px;">coming soon...</h4>
+    <div class="grid">
+        <div>
+            <div class="placeholder"></div>
+            <div class="text-placeholder long"></div>
+            <div class="text-placeholder short"></div>
+        </div>
+        <div>
+            <div class="placeholder"></div>
+            <div class="text-placeholder long"></div>
+            <div class="text-placeholder short"></div>
+        </div>
+        <div>
+            <div class="placeholder"></div>
+            <div class="text-placeholder long"></div>
+            <div class="text-placeholder short"></div>
+        </div>
+        <div>
+            <div class="placeholder"></div>
+            <div class="text-placeholder long"></div>
+            <div class="text-placeholder short"></div>
+        </div>
+        <div>
+            <div class="placeholder"></div>
+            <div class="text-placeholder long"></div>
+            <div class="text-placeholder short"></div>
+        </div>
+        <div>
+            <div class="placeholder"></div>
+            <div class="text-placeholder long"></div>
+            <div class="text-placeholder short"></div>
         </div>
     </div>
-
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js"></script>
-    <script>
-        // Your Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyBZgCC8NmbT8_fS1FTC6CIAOcmhRS7BKuw",
-            authDomain: "zerox-793b6.firebaseapp.com",
-            databaseURL: "https://zerox-793b6-default-rtdb.firebaseio.com",
-            projectId: "zerox-793b6",
-            storageBucket: "zerox-793b6.firebasestorage.app",
-            messagingSenderId: "577608028088",
-            appId: "1:577608028088:web:f13f12f935dc3a0b4b094d"
-        };
-
-        // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const tg = window.Telegram.WebApp.initDataUnsafe.user;
-
-            if (tg) {
-                const userId = tg.id;
-                const name = tg.first_name || "Anonymous";
-                const username = tg.username || `@${userId}`;
-                const profilePic = tg.photo_url || "default-profile-pic.jpg"; // Fallback image
-
-                // Check if user exists in Firebase
-                const userRef = database.ref(`users/${userId}`);
-                userRef.once("value").then((snapshot) => {
-                    if (snapshot.exists()) {
-                        // User exists, fetch data and update UI
-                        const data = snapshot.val();
-                        updateProfile(data.name, data.username, data.balance, profilePic);
-                    } else {
-                        // New user: Create user in Firebase with initial data
-                        const initialData = {
-                            name: name,
-                            username: username,
-                            balance: 20,
-                            likes: 0,
-                            followers: 0,
-                            profilePic: profilePic
-                        };
-                        userRef.set(initialData);
-                        updateProfile(name, username, 20, profilePic);
+        </div>
+        <div id="profile" class="profile hidden" style="padding: 20px;">
+            <h1 class="profile-title">Profile</h1>
+                <div class="profile-header">
+                    <div class="profile-picture"></div>
+                    <div class="profile-info">
+                        <div class="profile-name">Niloy Gazi</div>
+                        <div class="profile-username">@niloythedmc</div>
+                        <div class="Balance" style="font-size: 14px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Balance: 1600 $dogs</div>
+                        <div class="tr-sec" style="display: flex; margin-top: 10px;">
+                            <div class="dp" style="float: left;font-size: 13px; height: 20px;width: 80px; padding-top: 2px; font-weight: bold; border-radius: 10px; color: white; margin-right: 130px; background-color: rgb(84, 153, 255);">DEPOSIT</div>
+                            <div class="wd" style="height: 20px;font-size: 13px; width: 85px; padding-top: 2px; font-weight: bold; border-radius: 10px; color: white; background-color: rgb(84, 153, 255);">WITHDRAW</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <div class="stat-item">3.1K Followers</div>
+                    <div class="stat-item">14.9K Likes</div>
+                </div>
+                <div class="profile-tabs">
+                    <button class="tab active" onclick="showTab('posts')">Posts</button>
+                    <button class="tab" onclick="showTab('followers')" style="text-align: center;">Followers</button>
+                    <button class="tab" onclick="showTab('earn')">Earn</button>
+                </div>
+                <div id="posts-grid" class="posts-grid" style="width: 100%;">
+                    <div class="floating-button">
+                        <span class="material-icons">add</span>
+                    </div>
+                </div>
+                <div id="followers-grid" class="followers-grid hidden">
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="grid-item"></div>
+                    <div class="more-link">
+                        <a href="#">more</a>
+                    </div>
+                </div>
+                <div id="earn-grid" class="earn-grid hidden">
+                    <div class="invite">
+                        <p>Invite to earn</p>
+                        <p>Earn 10 $dogs per invite. Be creative. Do unique</p>
+                        <div style="display: flex;">
+                            <input id="invite-link" type="text" value="https://t.me/App_ZeroX_Bot?startapp=bieg28rddhy8r29ys" readonly>
+                            <span class="material-icons copy-icon" onclick="copyToClipboard()">content_copy</span>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <span>Join Channel to earn 10 $dogs</span>
+                        <button class="button">GO</button>
+                    </div>
+                    <div class="task">
+                        <span>Follow X to earn 10 $dogs</span>
+                        <button class="button">GO</button>
+                    </div>
+                    <div class="task">
+                        <span>Subscribe YouTube to earn 10 $dogs</span>
+                        <button class="button">GO</button>
+                    </div>
+                    <div class="task">
+                        <span>Join Dogs Community to earn 10 $dogs</span>
+                        <button class="button">GO</button>
+                    </div>
+                    <div class="task">
+                        <span>Follow Dogs on X to earn 10 $dogs</span>
+                        <button class="button">GO</button>
+                    </div>
+                    <div class="task">
+                        <span>Follow here to earn 10 $dogs</span>
+                        <button class="button">GO</button>
+                    </div>
+                    <div class="task">
+                        <span>Deposit to earn 10 $dogs</span>
+                        <button class="button">GO</button>
+                    </div>
+                    <div class="task">
+                        <span>Post to earn more $dogs</span>
+                        <button class="button">GO</button>
+                    </div>
+                </div>
+                <script>
+                    function showTab(tabName) {
+                       
+                        const tabs = document.querySelectorAll('.tab');
+                        const postsGrid = document.getElementById('posts-grid');
+                        const followersGrid = document.getElementById('followers-grid');
+                        const earnGrid = document.getElementById('earn-grid');
+            
+                        tabs.forEach(tab => tab.classList.remove('active'));
+                        postsGrid.classList.add('hidden');
+                        followersGrid.classList.add('hidden');
+                        earnGrid.classList.add('hidden');
+            
+                        if (tabName === 'posts') {
+                            postsGrid.classList.remove('hidden');
+                        } else if (tabName === 'followers') {
+                            followersGrid.classList.remove('hidden');
+                        } else if (tabName === 'earn') {
+                            earnGrid.classList.remove('hidden');
+                        }
+            
+                        document.querySelector(`.tab:nth-child(${tabName === 'posts' ? 1 : tabName === 'followers' ? 2 : 3})`).classList.add('active');
                     }
-                });
-            } else {
-                console.error("Telegram WebApp data unavailable");
-            }
+            
+                    function copyToClipboard() {
+                        const inviteLink = document.getElementById("invite-link");
+                        inviteLink.select();
+                        inviteLink.setSelectionRange(0, 99999);
+                        navigator.clipboard.writeText(inviteLink.value).then(() => {
+                            alert("Link copied to clipboard!");
+                        });
+                    }
+                </script>
+        </div>
+        <div class="bottom-nav">
+            <div class="nav-item selected" id="dashboard-icon">
+                <i class="material-icons">dashboard</i>
+            </div>
+            <div class="nav-item" id="favorite-icon">
+                <i class="material-icons">favorite</i>
+            </div>
+            <div class="nav-item" id="shopping-icon">
+                <i class="material-icons">shopping_bag</i>
+            </div>
+            <div class="nav-item" id="person-icon">
+                <i class="material-icons">person</i>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+    
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDqcjZilD6TNsIBpwd0A2obdepUO9d88uY",
+            authDomain: "zerox-2c22d.firebaseapp.com",
+            databaseURL: "https://zerox-2c22d-default-rtdb.firebaseio.com",
+            projectId: "zerox-2c22d",
+            storageBucket: "zerox-2c22d.appspot.com",
+            messagingSenderId: "1076284261548",
+            appId: "1:1076284261548:web:fcc52a0597b3933f1b8b09",
+            measurementId: "G-RYFTN1ZPGS"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+    
+        // Fetch Telegram User Info
+        const telegram = window.Telegram.WebApp;
+        const userId = telegram.initDataUnsafe.user.id;
+        const username = telegram.initDataUnsafe.user.username;
+        const fullName = telegram.initDataUnsafe.user.first_name + " " + (telegram.initDataUnsafe.user.last_name || '');
+        const profilePic = telegram.initDataUnsafe.user.photo_url;
+    
+        // Check User in Database
+        const userRef = ref(db, `users/${userId}`);
+    
+        get(child(ref(db), `users/${userId}`))
+            .then(snapshot => {
+                if (snapshot.exists()) {
+                    // User exists, fetch their data
+                    const userData = snapshot.val();
+                    updateProfile(userData.username, userData.name, userData.photoUrl, userData.balance, userData.likes, userData.followers);
+                } else {
+                    // User does not exist, create default data
+                    const defaultData = {
+                        username: username || `@user${userId}`,
+                        name: fullName,
+                        photoUrl: profilePic || 'https://via.placeholder.com/80',
+                        balance: 20,
+                        likes: 0,
+                        followers: 0
+                    };
+                    set(userRef, defaultData).then(() => {
+                        updateProfile(defaultData.username, defaultData.name, defaultData.photoUrl, defaultData.balance, defaultData.likes, defaultData.followers);
+                    });
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching user data:", error);
+            });
+    
+        // Update Profile UI
+        function updateProfile(username, name, photoUrl, balance, likes, followers) {
+            document.querySelector('.profile-name').textContent = name;
+            document.querySelector('.profile-username').textContent = username;
+            document.querySelector('.Balance').textContent = `Balance: ${balance} $dogs`;
+            const profilePicture = document.querySelector('.profile-picture');
+            profilePicture.style.backgroundImage = `url(${photoUrl})`;
+    
+            document.querySelector('.profile-stats').innerHTML = `
+                <div class="stat-item">${followers} Followers</div>
+                <div class="stat-item">${likes} Likes</div>
+            `;
+        }
+    </script>    
+    <script>
+        const dashboardIcon = document.getElementById('dashboard-icon');
+        const favoriteIcon = document.getElementById('favorite-icon');
+        const shoppingIcon = document.getElementById('shopping-icon');
+        const personIcon = document.getElementById('person-icon');
+
+        const homeDiv = document.getElementById('home');
+        const localDiv = document.getElementById('local');
+        const shopDiv = document.getElementById('shop');
+        const profileDiv = document.getElementById('profile');
+        
+        const navItems = document.querySelectorAll('.bottom-nav .nav-item');
+
+        function resetNavColors() {
+            navItems.forEach(item => {
+                item.classList.remove('selected');
+            });
+            homeDiv.classList.add('hidden');
+            localDiv.classList.add('hidden');
+            shopDiv.classList.add('hidden');
+            profileDiv.classList.add('hidden');
+        }
+
+        dashboardIcon.addEventListener('click', function() {
+            resetNavColors();
+            homeDiv.classList.remove('hidden');
+            dashboardIcon.classList.add('selected');
         });
 
-        // Function to update profile with user data
-        function updateProfile(name, username, balance, profilePic) {
-            document.querySelector(".profile-name").textContent = name;
-            document.querySelector(".profile-username").textContent = username;
-            document.querySelector(".Balance").textContent = `Balance: ${balance} $dogs`;
-            const profilePicture = document.querySelector(".profile-picture");
-            profilePicture.style.backgroundImage = `url(${profilePic})`;
-            profilePicture.style.backgroundSize = "cover";
-        }
+        favoriteIcon.addEventListener('click', function() {
+            resetNavColors();
+            localDiv.classList.remove('hidden');
+            favoriteIcon.classList.add('selected');
+        });
 
-        // Tab switching logic
-        function showTab(tabName) {
-            const tabs = document.querySelectorAll('.tab');
-            const postsGrid = document.getElementById('posts-grid');
-            const followersGrid = document.getElementById('followers-grid');
-            const earnGrid = document.getElementById('earn-grid');
+        shoppingIcon.addEventListener('click', function() {
+            resetNavColors();
+            shopDiv.classList.remove('hidden');
+            shoppingIcon.classList.add('selected');
+        });
 
-            tabs.forEach(tab => tab.classList.remove('active'));
-            postsGrid.classList.add('hidden');
-            followersGrid.classList.add('hidden');
-            earnGrid.classList.add('hidden');
-
-            if (tabName === 'posts') {
-                postsGrid.classList.remove('hidden');
-            } else if (tabName === 'followers') {
-                followersGrid.classList.remove('hidden');
-            } else if (tabName === 'earn') {
-                earnGrid.classList.remove('hidden');
-            }
-
-            document.querySelector(`.tab:nth-child(${tabName === 'posts' ? 1 : tabName === 'followers' ? 2 : 3})`).classList.add('active');
-        }
-
-        // Copy link to clipboard
-        function copyToClipboard() {
-            const inviteLink = document.getElementById("invite-link");
-            inviteLink.select();
-            inviteLink.setSelectionRange(0, 99999);
-            navigator.clipboard.writeText(inviteLink.value).then(() => {
-                alert("Link copied to clipboard!");
-            });
-        }
+        personIcon.addEventListener('click', function() {
+            resetNavColors();
+            profileDiv.classList.remove('hidden');
+            personIcon.classList.add('selected');
+        });
     </script>
 </body>
 </html>
